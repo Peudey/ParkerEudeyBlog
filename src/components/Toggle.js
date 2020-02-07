@@ -26,7 +26,7 @@ const ToggleContainer = styled.button`
 
     img {
         height: auto;
-        width: 2.5rem;
+        width: 2vw;
         transition: all 0.3s linear;
         
         // sun icon
