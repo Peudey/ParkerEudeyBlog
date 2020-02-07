@@ -11,10 +11,8 @@ const breakpointColumnsObj = {
   };
 
 const IndexWrapper = styled.main`
-p{
-    font-size: 20px;
-}
-h1{
+p, h1{
+    color: ${({ theme }) => theme.text};
     font-size: 20px;
 }
 h2{
@@ -22,7 +20,6 @@ h2{
     font-size: 14px;
 }
 a{
-    color: black;
     text-decoration: none;
 }
 .my-masonry-grid {
@@ -36,9 +33,9 @@ a{
   }
   
   .my-masonry-grid_column > div { 
-    background: white;
+    background: ${({ theme }) => theme.gridBG};
     border-radius: 10px;
-    box-shadow: 0px 4px 6px #cacfce;
+    box-shadow: ${({ theme }) => theme.dropShadow};
     padding: 1em;
     margin-bottom: 30px;
   }

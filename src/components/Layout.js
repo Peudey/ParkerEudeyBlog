@@ -1,14 +1,18 @@
 import React from 'react';
-import styled, { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
 import { Header } from './Header';
+import { lightTheme, darkTheme } from './theme';
+import Toggle from './Toggle';
+import { useDarkMode } from './useDarkMode';
 
 const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
     body{
         margin: 0;
         padding: 0;
-        background-color: #e4ebea;
+        background: ${({ theme }) => theme.body};
+        color: ${({ theme }) => theme.text};
         font-family: 'Playfair Display', serif;
         font-weight: 500;
     }
@@ -24,6 +28,9 @@ const AppStyles = styled.main`
     width: 100%;
     padding: .25em;
     background-color: #2e3942;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     a{
         color: white;
     }
@@ -35,8 +42,9 @@ const AppStyles = styled.main`
     }
 }
 .headerText{
-    width: 90vw;
-    margin: 0 auto;
+    width: 50vw;
+    position: relative;
+    //left: 20vw;
 }
 .footer{
     display: flex;
@@ -47,48 +55,62 @@ const AppStyles = styled.main`
 }
 h1{
     font-weight: 700;
-    color: black;
+    color: ${({ theme }) => theme.text};
 }
 .postHeader{
+    padding: 0px 20px;
     h2{
         color: grey;
         font-size: 14px;
     }
 }
 .postBody{
-    background-color: white;
-    padding: 15px 10px;
+    background: ${({ theme }) => theme.gridBG};
+    width: 70vw;
+    padding: 15px 20px;
     border-radius: 10px;
-    box-shadow: 0px 4px 6px #cacfce;
+    box-shadow: ${({ theme }) => theme.dropShadow};
     font-size: 20px;
 }
 .button{
-    background-color: #e4ebea;
+    background: ${({ theme }) => theme.body};
     text-align: center;
     padding: 1em;
     border: none;
+    a:visited{
+        color:${({ theme }) => theme.text};
+    }
 }
 .container{
-    width: 90vw;
+    width: 80vw;
     margin: 0 auto;
 }
 `;
+
+
+
 export const Layout = ({ children }) => {
     const { title, description } = useSiteMetadata();
+
+    const [ theme, toggleTheme ] = useDarkMode();
+    const themeMode = theme === 'light' ? lightTheme : darkTheme;
     return (
         <React.Fragment>
+            <ThemeProvider theme={themeMode}>
             <GlobalStyle />
                 <AppStyles>
                     <div class="header">
                         <div class="headerText">
                             <Header siteTitle = {title} siteDescription = {description} />
                         </div>
+                        <Toggle theme={theme} toggleTheme={toggleTheme} />
                     </div>
                     <div class="container">
                         <br />
                         { children }
                     </div>
                 </AppStyles>
-            </React.Fragment>
+            </ThemeProvider>
+        </React.Fragment>
     );
 };

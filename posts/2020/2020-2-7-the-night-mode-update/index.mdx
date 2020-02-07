@@ -1,0 +1,122 @@
+---
+title: The Night Mode Update
+date: 2020-02-07
+published: true
+---
+
+You may notice the little button in the top right. That is a little react component
+that I struggled with implimenting, but I got the basic functionality there.
+
+
+It is basically just a switch between two Styled Components themes
+for day and night mode. The Toggle file works like this
+
+
+```jsx
+
+import React from 'react';
+import { func, string } from 'prop-types';
+import styled from 'styled-components';
+
+import MoonIcon from './icons/moon.svg';
+import SunIcon from './icons/sun.svg';
+
+
+const Toggle = ({ theme, toggleTheme }) => {
+    const isLight = theme === 'light';
+    return(
+        <ToggleContainer lightTheme={isLight} onClick={toggleTheme}>
+            <img src={SunIcon} />
+            <img src={MoonIcon} />
+        </ToggleContainer>
+    );
+};
+
+Toggle.propTypes = {
+    theme: string.isRequired,
+    toggleTheme: func.isRequired,
+  }
+
+export default Toggle;
+```
+
+
+This is our Toggle component, Which is a styled button that transitions between two 
+icons.
+
+```jsx
+
+const ToggleContainer = styled.button`
+    background: white;
+    border: 2px solid ${({ theme }) => theme.toggleBorder};
+    border-radius: 30px;
+    cursor: pointer;
+    display: flex;
+    font-size: 0.5rem;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 0.5rem;
+    position: relative;
+    top: 1rem;
+    left: 2rem;
+    width: 5vw;
+    min-width: 90px;
+    height: 5vh;
+    min-height: 45px;
+
+    img {
+        height: auto;
+        width: 2.5rem;
+        transition: all 0.3s linear;
+        
+        // sun icon
+        &:first-child {
+            transform: ${({ lightTheme }) => lightTheme ? 'translateX(0)' : 'translateX(8rem)'};
+            opacity: ${({ lightTheme }) => lightTheme ? '100%' : '0%'};
+        }
+        
+        // moon icon
+        &:nth-child(2) {
+            transform: ${({ lightTheme }) => lightTheme ? 'translateX(-8rem)' : 'translateX(0)'};
+            opacity: ${({ lightTheme }) => lightTheme ? '0%' : '100%'};
+        }
+    }
+`;
+```
+
+
+And then our actual react hook is below.
+
+```jsx
+
+import { useEffect, useState } from 'react';
+
+export const useDarkMode = () => {
+  const [theme, setTheme] = useState('light');
+  const toggleTheme = () => {
+    if (theme === 'light') {
+      window.localStorage.setItem('theme', 'dark')
+      setTheme('dark')
+    } else {
+      window.localStorage.setItem('theme', 'light')
+      setTheme('light')
+    }
+  };
+
+  useEffect(() => {
+    const localTheme = window.localStorage.getItem('theme');
+    localTheme && setTheme(localTheme);
+  }, []);
+
+  return [theme, toggleTheme]
+};
+
+```
+ 
+Up next is storing the the user's preferences so you won't need to keep toggling.
+
+And then the biggest step of this project yet, refactoring this mess of a project.
+ It has been a learning experience, this is my first step into web development and React 
+ hours of reading docs, looking at tutorials and the source code of similar projects.
+
+ I am excited to grow this site and expand the features going forward!

@@ -24,6 +24,7 @@
     "react-dom": "^16.12.0",
     "react-live": "^2.2.2",
     "react-masonry-css": "^1.0.14",
+    "react-script": "^2.0.5",
     "styled-components": "^4.4.1"
   }
 }

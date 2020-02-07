@@ -8,6 +8,7 @@ export default ({ data, pageContext }) => {
     const { previous, next } = pageContext;
     return (
         <Layout>
+            <div class="container">
                 <div class="postHeader">
                     <h1>{frontmatter.title}</h1>
                     <h2>{frontmatter.date}</h2>
@@ -18,6 +19,7 @@ export default ({ data, pageContext }) => {
                 </div>
                 <br />
                 <hr />
+                </div>
             <span class = "footer">
                 {previous === false ? null : (
                     <button class="button">
