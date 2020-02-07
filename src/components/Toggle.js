@@ -19,13 +19,13 @@ const ToggleContainer = styled.button`
     position: relative;
     top: 1rem;
     width: 5vw;
-    min-width: 90px;
+    min-width: 110px;
     height: 5vh;
     min-height: 45px;
 
     img {
         height: auto;
-        width: 2vw;
+        width: 2.5rem;
         min-width: 45px;
         transition: all 0.3s linear;
         
