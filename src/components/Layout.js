@@ -66,6 +66,7 @@ h1{
 }
 .postBody{
     background: ${({ theme }) => theme.gridBG};
+    margin: 0 auto;
     width: 70vw;
     padding: 15px 20px;
     border-radius: 10px;
