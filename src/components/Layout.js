@@ -52,7 +52,7 @@ const AppStyles = styled.main`
         }
         .headerText{
             width: 50vw;
-            min-width: 200px;
+            min-width: 300px;
             p{
                 width: 90vw;
             }
@@ -60,6 +60,7 @@ const AppStyles = styled.main`
     }
     .footer{
         display: flex;
+
         justify-content: center;
         flex-direction: row;
         width: 30vw;
@@ -99,6 +100,7 @@ const AppStyles = styled.main`
         text-align: center;
         flex-direction: column;
         width: 50vw;
+        min-width: 400px;
         margin: 0 auto;
         font-size: 12px;
         a{
