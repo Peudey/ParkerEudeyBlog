@@ -11,34 +11,33 @@ const breakpointColumnsObj = {
   };
 
 const IndexWrapper = styled.main`
-p, h1{
-    color: ${({ theme }) => theme.text};
-    font-size: 20px;
-}
-h2{
-    color: grey;
-    font-size: 14px;
-}
-a{
-    text-decoration: none;
-}
-.my-masonry-grid {
-    display: flex;
-    margin-left: -30px;
-    width: auto;
-  }
-  .my-masonry-grid_column {
-    padding-left: 30px;
-    background-clip: content-box;
-  }
-  
-  .my-masonry-grid_column > div { 
-    background: ${({ theme }) => theme.gridBG};
-    border-radius: 10px;
-    box-shadow: ${({ theme }) => theme.dropShadow};
-    padding: 1em;
-    margin-bottom: 30px;
-  }
+    p, h1{
+        color: ${({ theme }) => theme.text};
+        font-size: 20px;
+    }
+    h2{
+        color: grey;
+        font-size: 14px;
+    }
+
+    .my-masonry-grid {
+        display: flex;
+        margin-left: -30px;
+        width: auto;
+    }
+    
+    .my-masonry-grid_column {
+        padding-left: 30px;
+        background-clip: content-box;
+    }
+    
+    .my-masonry-grid_column > div { 
+        background: ${({ theme }) => theme.gridBG};
+        border-radius: 10px;
+        box-shadow: ${({ theme }) => theme.dropShadow};
+        padding: 1em;
+        margin-bottom: 30px;
+    }
 `;
 
 const PostWrapper = styled.div`
