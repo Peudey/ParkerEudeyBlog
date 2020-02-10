@@ -100,7 +100,7 @@ const AppStyles = styled.main`
         text-align: center;
         flex-direction: column;
         width: 50vw;
-        min-width: 400px;
+        min-width: 300px;
         margin: 0 auto;
         font-size: 12px;
         a{
