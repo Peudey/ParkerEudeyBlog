@@ -86,7 +86,8 @@ const AppStyles = styled.main`
     }
 
     .postHeader{
-        padding: 0px 20px;
+        position: relative;
+        left: 5vw;
         h2{
             color: grey;
             font-size: 14px;

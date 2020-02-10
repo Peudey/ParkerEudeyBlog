@@ -28,6 +28,7 @@ const ToggleContainer = styled.button`
         width: 2.5rem;
         min-width: 15px;
         transition: all 0.3s linear;
+        transform: translate(0%, 50%);
         
         // sun icon
         &:first-child {
