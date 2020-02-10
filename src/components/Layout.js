@@ -42,9 +42,11 @@ const AppStyles = styled.main`
     }
 }
 .headerText{
-    width: 50vw;
+    width: 90vw;
     position: relative;
-    //left: 20vw;
+    p{
+        font-size:20px;
+    }
 }
 .footer{
     display: flex;

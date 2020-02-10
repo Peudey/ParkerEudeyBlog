@@ -1,14 +1,15 @@
 import Highlight, { defaultProps } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/nightOwl';
+import theme from 'prism-react-renderer/themes/vsDark';
 import React from 'react';
 import styled from 'styled-components';
 
 export const Pre = styled.pre`
+font-size: 12px;
 text-align: left;
 margin: 1em 0;
 padding: 0.5em;
 overflow-x: auto;
-border-radius: 3px
+border-radius: 5px
 
 & .token-line {
     line-height: 1.3em;
