@@ -19,9 +19,9 @@ const ToggleContainer = styled.button`
     position: relative;
     top: 1rem;
     width: 5vw;
-    min-width: 100px;
+    min-width: 75px;
     height: 5vh;
-    min-height: 60px;
+    min-height: 45px;
 
     img {
         height: auto;

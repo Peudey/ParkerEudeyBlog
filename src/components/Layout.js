@@ -54,7 +54,7 @@ const AppStyles = styled.main`
             width: 50vw;
             min-width: 300px;
             p{
-                width: 90vw;
+                width: 80vw;
             }
         }
     }
