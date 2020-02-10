@@ -31,7 +31,11 @@ const AppStyles = styled.main`
         width: 80vw;
         margin: 0 auto;
     }
-
+    @media screen and (max-width: 400px){
+        .header{
+            font-size: 12px;
+        }
+    }
     //Header Styling
     //May move to the header component
     .header{
@@ -52,12 +56,13 @@ const AppStyles = styled.main`
         }
         .headerText{
             width: 50vw;
-            min-width: 300px;
+            min-width: 250px;
             p{
-                width: 80vw;
+                width: 90vw;
             }
         }
     }
+
     .footer{
         display: flex;
 
