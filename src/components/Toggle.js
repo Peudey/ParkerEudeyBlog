@@ -8,14 +8,14 @@ import SunIcon from './icons/sun.svg';
 console.log(MoonIcon);
 const ToggleContainer = styled.button`
     background: white;
-    border: 2px solid ${({ theme }) => theme.toggleBorder};
+    border: 2px solid black;
     border-radius: 30px;
     cursor: pointer;
     display: flex;
     font-size: 0.5rem;
     justify-content: space-between;
     overflow: hidden;
-    padding: 0.2rem;
+    padding: 0.2rem .5rem;
     position: relative;
     top: 1rem;
     width: 5vw;
