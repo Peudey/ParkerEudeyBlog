@@ -32,10 +32,11 @@ const AppStyles = styled.main`
         margin: 0 auto;
     }
     @media screen and (max-width: 400px){
-        .header{
+        body{
             font-size: 12px;
         }
     }
+
     //Header Styling
     //May move to the header component
     .header{
