@@ -52,6 +52,7 @@ const AppStyles = styled.main`
         }
         .headerText{
             width: 50vw;
+            min-width: 200px;
             p{
                 width: 90vw;
             }
