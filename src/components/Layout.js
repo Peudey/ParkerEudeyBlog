@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
     body{
         margin: 0;
         padding: 0;
+        width: 100%;
         background: ${({ theme }) => theme.body};
         color: ${({ theme }) => theme.text};
         font-family: 'Playfair Display', serif;
@@ -41,7 +42,6 @@ const AppStyles = styled.main`
     //May move to the header component
     .header{
         width: 100%;
-        padding: .25em;
         background-color: #2e3942;
         display: flex;
         flex-direction: row;
@@ -59,7 +59,7 @@ const AppStyles = styled.main`
             width: 50vw;
             min-width: 250px;
             p{
-                width: 40vw;
+                width: 80vw;
             }
         }
     }
