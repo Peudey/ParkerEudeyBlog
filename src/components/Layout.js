@@ -22,6 +22,9 @@ const GlobalStyle = createGlobalStyle`
     a{
         text-decoration: none;
     }
+    a:focus{
+        outline: none;
+    }
 `
 const AppStyles = styled.main`
     .container{
@@ -90,6 +93,17 @@ const AppStyles = styled.main`
         box-shadow: ${({ theme }) => theme.dropShadow};
         font-size: 20px;
     }
+    .credits{
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        width: 50vw;
+        margin: 0 auto;
+        font-size: 12px;
+        a{
+            color:${({ theme }) => theme.text};
+        }
+    }
 `;
 
 
@@ -114,6 +128,10 @@ export const Layout = ({ children }) => {
                         <br />
                         { children }
                     </div>
+                    <span class="credits">
+                        <div>Sun Icon made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+                        <div>Moon Icon made by <a href="https://www.flaticon.com/authors/iconixar" title="iconixar">iconixar</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+                    </span>
                 </AppStyles>
             </ThemeProvider>
         </React.Fragment>
