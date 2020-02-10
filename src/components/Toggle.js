@@ -15,7 +15,7 @@ const ToggleContainer = styled.button`
     font-size: 0.5rem;
     justify-content: space-between;
     overflow: hidden;
-    padding: 0.5rem;
+    padding: 0.2rem;
     position: relative;
     top: 1rem;
     width: 5vw;
@@ -26,7 +26,7 @@ const ToggleContainer = styled.button`
     img {
         height: auto;
         width: 1.5rem;
-        min-width: 15px;
+        min-width: 10px;
         transition: all 0.3s linear;
         
         // sun icon
