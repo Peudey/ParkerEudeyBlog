@@ -1,0 +1,38 @@
+---
+title: Persistance
+date: 2020-03-11
+published: true
+---
+
+Long first half of the semester, pair that with an increase
+in demand for 3d design work and you have the perfect storm that made madenot even want to touch this 
+blog at all or think about anything in my off time.
+
+With spring break hitting and finally getting time to get reasonably ahead in my work
+I have finally found the time to finish up some changes and reworks I had planned.
+The first one and a relatively minor change graphically, but is important to me in making this blog 
+functional as well as pleasing to look at.
+
+# Persistance
+
+I was struggling with this originally, this is just a simple
+single page blog and I was aiming to keep it stateless and try to expand my skills. 
+In order to make this happen, I modified our hook for the light and dark mode button just a bit.
+
+```jsx
+  useEffect(() => {
+    const localTheme = window.localStorage.getItem('theme');
+    if (localTheme){
+      setTheme(localTheme);
+    } else {
+      setMode('light')
+    }
+    setComponentMounted(true);
+  }, []);
+```
+
+This is a fairly straight forward change that just stores if the page is loaded or not and loads up the saved theme. 
+Previously when you would visit the page or mavigate between posts you would see the page load for just a split second in the 
+light theme and then immediately switch to dark if that is what was cached. This was an extreme eye sore and I was not happy with it.
+
+Further changes, some refactoring and some slight visual changes, a slight glow that is displayed when you hover a post and some minor cleanups.

@@ -32,12 +32,17 @@ const IndexWrapper = styled.main`
     }
     
     .my-masonry-grid_column > div { 
-        background: ${({ theme }) => theme.gridBG};
+        background: ${({ theme }) => theme.gridBG}; 
         border-radius: 10px;
         box-shadow: ${({ theme }) => theme.dropShadow};
         padding: 1em;
         margin-bottom: 30px;
+        transition: box-shadow .5s;
+        :hover{
+            box-shadow: 0 0 8px white;
+        }
     }
+    
 `;
 
 const PostWrapper = styled.div`
