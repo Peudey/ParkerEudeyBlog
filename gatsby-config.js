@@ -1,6 +1,6 @@
 const siteMetadata = {
   title: `Parker Eudey's Blog`,
-  description: `My journey as a former mechanical designer, current programming student and prop designer`,
+  description: `My journey as a former mechanical designer, current programming student and web developer`,
   url: "https://www.parkereudey.com",
   imrage: ""
 };
