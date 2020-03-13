@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 
-const SEO = ({ title, description, image, pathname, article }) => (
+const SEO = ({ title, description, image, pathname, article, authorName }) => (
   <StaticQuery
     query={query}
     render={({
@@ -13,7 +13,8 @@ const SEO = ({ title, description, image, pathname, article }) => (
           titleTemplate,
           defaultDescription,
           siteUrl,
-          defaultImage
+          defaultImage,
+          authorName
         }
       }
     }) => {
@@ -70,6 +71,7 @@ const query = graphql`
         defaultTitle: title
         defaultDescription: description
         siteUrl: url
+        authorName: authorName
       }
     }
   }

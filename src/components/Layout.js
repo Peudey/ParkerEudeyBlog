@@ -4,7 +4,6 @@ import { useSiteMetadata } from "../hooks/useSiteMetadata";
 import { Header } from "./Header";
 import { useDarkMode } from "../hooks/useDarkMode";
 import { lightTheme, darkTheme } from "./theme";
-import Seo from "./SEO";
 import Toggle from "./Toggle";
 
 const GlobalStyle = createGlobalStyle`
@@ -129,7 +128,6 @@ export const Layout = ({ children }) => {
 
   return (
     <React.Fragment>
-      <Seo />
       <ThemeProvider theme={themeMode}>
         <GlobalStyle />
         <AppStyles>
