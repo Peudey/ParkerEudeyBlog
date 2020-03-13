@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { Layout } from "../components/Layout";
 import Masonry from "react-masonry-css";
 import Seo from "../components/SEO";
-import { useSiteMetadata } from "../hooks/useSiteMetadata";
 
 const breakpointColumnsObj = {
   default: 3,
@@ -50,10 +49,9 @@ const IndexWrapper = styled.main`
 const PostWrapper = styled.div``;
 
 export default ({ data }) => {
-  const { description, title, url } = useSiteMetadata();
   return (
     <Layout>
-      <Seo description={description} title={title} pathname={url} />
+      {<Seo />}
       <IndexWrapper>
         <Masonry
           breakpointCols={breakpointColumnsObj}
