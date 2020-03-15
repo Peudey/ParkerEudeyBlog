@@ -1,7 +1,6 @@
 import React from "react";
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import { useSiteMetadata } from "../hooks/useSiteMetadata";
-import SEO from "../components/SEO";
 import { Header } from "./Header";
 import { useDarkMode } from "../hooks/useDarkMode";
 import { lightTheme, darkTheme } from "./theme";
@@ -129,7 +128,6 @@ export const Layout = ({ children }) => {
 
   return (
     <>
-      <SEO title={title} description={description} />
       <ThemeProvider theme={themeMode}>
         <GlobalStyle />
         <AppStyles>

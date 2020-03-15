@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import { Layout } from "../components/Layout";
 import Masonry from "react-masonry-css";
-import Seo from "../components/SEO";
+import SEO from "../components/SEO";
 
 const breakpointColumnsObj = {
   default: 3,
@@ -51,7 +51,10 @@ const PostWrapper = styled.div``;
 export default ({ data }) => {
   return (
     <Layout>
-      {<Seo />}
+      <SEO
+        title="Parker Eudey's Blog"
+        description="A programming blog written by Parker Eudey"
+      />
       <IndexWrapper>
         <Masonry
           breakpointCols={breakpointColumnsObj}
