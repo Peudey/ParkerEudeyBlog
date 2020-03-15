@@ -30,7 +30,7 @@ const SEO = ({ description, meta, title }) => {
             meta={[
               {
                 name: "description",
-                content: data.site.siteMetadata.description
+                content: metaDescription
               },
               {
                 property: "og:title",
