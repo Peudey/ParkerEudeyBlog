@@ -1,3 +1,55 @@
+---
+title: Rudimentary SEO
+date: 2020-03-14
+published: true
+---
+
+I have been needing to work on the SEO for a while on this site. I decided to write this blog post in the process of implimenting my SEO so I 
+could document the full process a but better than my previous posts. I will be using react helmet in this implimentation
+
+```jsx
+import React from "react";
+import { Helmet } from "react-helmet";
+import { StaticQuery, graphql } from "gatsby";
+
+const SEO = () => {
+  return (
+    <StaticQuery
+      query={graphql`
+        {
+          site {
+            siteMetaData {
+              title
+              description
+              siteUrl
+            }
+          }
+        }
+      `}
+      render={data => (
+        <Helmet
+          htmlAttributes={{
+            lang: "en"
+          }}
+          meta={[
+            {
+              name: "description",
+              content: data.site.siteMetaData.description
+            }
+          ]}
+        />
+      )}
+    />
+  );
+};
+
+export default SEO;
+```
+
+This is the foundation of our SEO component. Our querry will pull the information from our siteMetaData found in gatsby-config.js so that we can pull themand render them along
+with the "en" tag at the root level. Now we will format it for twitter, I still need to finish the image field but for now we will just return null.
+
+```jsx
 import React from "react";
 import Helmet from "react-helmet";
 import propTypes from "prop-types";
@@ -67,3 +119,6 @@ SEO.propTypes = {
 };
 
 export default SEO;
+```
+
+Now we can just impliment it anywhere on our site and pass the desire props that we want to use to our SEO component.
