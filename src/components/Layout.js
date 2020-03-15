@@ -129,7 +129,7 @@ export const Layout = ({ children }) => {
 
   return (
     <>
-      <SEO title="Parker Eudey's Blog" />
+      <SEO title={title} description={description} />
       <ThemeProvider theme={themeMode}>
         <GlobalStyle />
         <AppStyles>
