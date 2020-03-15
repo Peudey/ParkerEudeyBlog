@@ -123,7 +123,7 @@ export const Layout = ({ children }) => {
   const themeMode = theme === "light" ? lightTheme : darkTheme;
 
   if (!componentMounted) {
-    return null;
+    return <div />;
   }
 
   return (
