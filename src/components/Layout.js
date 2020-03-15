@@ -122,9 +122,9 @@ export const Layout = ({ children }) => {
   const [theme, toggleTheme, componentMounted] = useDarkMode();
   const themeMode = theme === "light" ? lightTheme : darkTheme;
 
-  if (!componentMounted) {
-    return <div />;
-  }
+  //if (!componentMounted) {
+  //  return <div />  ;
+  //}
 
   return (
     <>
