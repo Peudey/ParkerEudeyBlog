@@ -51,10 +51,7 @@ const PostWrapper = styled.div``;
 export default ({ data }) => {
   return (
     <Layout>
-      <SEO
-        title="Parker Eudey's Blog"
-        description="A programming blog written by Parker Eudey"
-      />
+      <SEO />
       <IndexWrapper>
         <Masonry
           breakpointCols={breakpointColumnsObj}

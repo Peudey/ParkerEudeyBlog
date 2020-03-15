@@ -1,6 +1,7 @@
 const siteMetadata = {
-  title: `Parker Eudey's Blog`,
-  description: `My journey as a former mechanical designer, current programming student and web developer`,
+  title: "Parker Eudey's Blog",
+  description:
+    "My journey as a former mechanical designer, current programming student and web developer",
   siteUrl: "https://www.parkereudey.com",
   author: "Parker Eudey"
 };

@@ -3,53 +3,63 @@ import Helmet from "react-helmet";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 
-function SEO({ description, meta, image: metaImage, title }) {
+const query = graphql`
+  query GetSiteMetadata {
+    site {
+      siteMetadata {
+        title
+        author
+        description
+        siteUrl
+      }
+    }
+  }
+`;
+
+function SEO({ meta, image, title, description, slug, lang = "en" }) {
   return (
     <StaticQuery
-      query={graphql`
-        {
-          site {
-            siteMetadata {
-              author
-              description
-              siteUrl
-            }
-          }
-        }
-      `}
+      query={query}
       render={data => {
-        const metaDescription =
-          description || data.site.siteMetadata.description;
-        const image =
-          metaImage && metaImage.src
-            ? `${data.site.siteMetadata.siteUrl}${metaImage.src}`
-            : null;
+        const { siteMetadata } = data.site;
+        const metaDescription = description || siteMetadata.description;
+        const metaImage = image ? `${siteMetadata.siteUrl}/${image}` : null;
+        const url = `${siteMetadata.siteUrl}${slug}`;
         return (
           <Helmet
-            htmlAttributes={{
-              lang: "en"
-            }}
-            title={title}
+            htmlAttributes={{ lang }}
+            {...(title
+              ? {
+                  titleTemplate: `%s — ${siteMetadata.title}`,
+                  title
+                }
+              : {
+                  title: `${siteMetadata.title} — A blog by Dan Abramov`
+                })}
             meta={[
               {
                 name: "description",
                 content: metaDescription
               },
               {
+                property: "og:url",
+                content: url
+              },
+              {
                 property: "og:title",
-                content: title
+                content: title || siteMetadata.title
               },
               {
                 property: "og:description",
                 content: metaDescription
               },
               {
-                name: "twitter:creator",
-                content: data.site.siteMetadata.author
+                name: "twitter:card",
+                content: "summary"
               },
               {
                 name: "twitter:title",
-                content: title
+                content: title || siteMetadata.title
               },
               {
                 name: "twitter:description",
@@ -61,27 +71,14 @@ function SEO({ description, meta, image: metaImage, title }) {
                   ? [
                       {
                         property: "og:image",
-                        content: image
+                        content: metaImage
                       },
                       {
-                        property: "og:image:width",
-                        content: metaImage.width
-                      },
-                      {
-                        property: "og:image:height",
-                        content: metaImage.height
-                      },
-                      {
-                        name: "twitter:card",
-                        content: "summary_large_image"
+                        name: "twitter:image",
+                        content: metaImage
                       }
                     ]
-                  : [
-                      {
-                        name: "twitter:card",
-                        content: "summary"
-                      }
-                    ]
+                  : []
               )
               .concat(meta)}
           />
@@ -92,12 +89,16 @@ function SEO({ description, meta, image: metaImage, title }) {
 }
 
 SEO.defaultProps = {
-  meta: []
+  meta: [],
+  title: "",
+  slug: ""
 };
 
 SEO.propTypes = {
   description: PropTypes.string,
+  image: PropTypes.string,
   meta: PropTypes.array,
+  slug: PropTypes.string,
   title: PropTypes.string.isRequired
 };
 
