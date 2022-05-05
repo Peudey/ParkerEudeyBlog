@@ -18,28 +18,29 @@ const ToggleContainer = styled.button`
   padding: 0.2rem 0.5rem;
   position: relative;
   top: 1rem;
-  width: 5vw;
+  width: 3vw;
   min-width: 70px;
-  height: 5vh;
-  min-height: 35px;
+  height: 35px;
 
   img {
+    position: relative;
     height: auto;
-    width: 1.5rem;
+    width: 35%;
+    top: 15%;
     min-width: 10px;
     transition: all 0.3s linear;
 
     // sun icon
     &:first-child {
       transform: ${({ lightTheme }) =>
-        lightTheme ? "translateX(0rem)" : "translateX(8rem)"};
+        lightTheme ? "translateX(0rem)" : "translateX(2.5rem)"};
       opacity: ${({ lightTheme }) => (lightTheme ? "100%" : "0%")};
     }
 
     // moon icon
     &:nth-child(2) {
       transform: ${({ lightTheme }) =>
-        lightTheme ? "translateX(-8rem)" : "translateX(0rem)"};
+        lightTheme ? "translateX(-2.5rem)" : "translateX(0rem)"};
       opacity: ${({ lightTheme }) => (lightTheme ? "0%" : "100%")};
     }
   }
